@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JavaScript</title>
+    <link rel="stylesheet" href="css/styles.min.css">
+</head>
+<body>
+    <main>
+        <h1 id="js-color">JavaScript</h1>
+        <script>
+            document.write(4 + 4);
+        </script>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae quos iusto eos deleniti laboriosam sit, quisquam qui, exercitationem, asperiores non odio ab eligendi similique. At corporis architecto minus cupiditate hic?
+        </p>
+    </main>
+    
+    <!--#include file="partials/footer.shtml" -->
+    <script src="js/script-minified.js"></script>
+</body>
+</html>
