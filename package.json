@@ -52,8 +52,8 @@
     "watch-css": "npm-watch build-css",
     "watch-html": "npm-watch build-html",
     "watch-js": "npm-watch build-js",
-    "build": "run-s clear build-*",
-    "watch": "run-s build watch-*",
+    "build": "run-s build-*",
+    "watch": "run-p build watch-*",
     "clear": "del -f dist/"
   },
   "author": "Matthieu Schneider",
@@ -63,7 +63,6 @@
     "@babel/core": "^7.1.6",
     "@babel/preset-env": "^7.1.6",
     "bootstrap": "^4.1.3",
-    "copyfiles": "^2.1.0",
     "del-cli": "^1.1.0",
     "make-dir-cli": "^1.0.0",
     "node-sass": "^4.9.3",
