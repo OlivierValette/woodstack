@@ -13,11 +13,13 @@ import helpers from './modules/helpers.js';
         if (Math.random() > s.difficulty) {
             // live
             ++s.score;
+            s.audioTrigger.play();
         }
         else {
             // shot
             --s.lives;
             ++s.deads;
+            s.audioDead.play();
             // end of game
             if (s.deads == 5) {
                 
@@ -30,7 +32,7 @@ import helpers from './modules/helpers.js';
     // Update HTML elements
     function eUpdate() {
         // username
-        s.eUsername.innerText = s.sUsername;
+        s.eUserName.innerText = s.sUserName;
         // score
         s.eScore.innerText = 'Score: ' + s.score;
         // livebar with skulls and hearts
@@ -39,6 +41,6 @@ import helpers from './modules/helpers.js';
             liveBar += ((i < s.deads) ? '💀' : '💛');
         }
         s.eLives.innerText = liveBar + ' ' + s.lives;
-        }
+    }
 
 }) (settings, helpers);

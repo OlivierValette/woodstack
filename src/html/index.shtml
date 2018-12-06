@@ -21,7 +21,7 @@
                     <div class="card-body">
                         <h6 id="js-score" class="card-title">Score</h6>
                         <p class="card-text">Ready to die?</p>
-                        <a href="#" id="js-trigger" class="btn btn-danger">Trigger 🔫</a>
+                        <button id="js-trigger" class="btn btn-danger">Trigger 🔫</button>
                         <p id="js-lives" class="pt-2"></p>
                     </div>
                 </div>
