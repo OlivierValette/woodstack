@@ -4,13 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>JavaScript</title>
+    <title>🔫 Russian Roulette</title>
     <link rel="stylesheet" href="css/styles.min.css">
 </head>
 <body>
     <main>
+        <div class="container">
+            <div class=" text-center text-white mt-5">
+                
+                <h1 class="h5"> Russian roulette! <span class="small">It can blow your mind...</span></h5>
 
-        
+                <div class="card bg-secondary mb-3 mx-auto" style="width: 25rem;">
+                    <h6 id="js-username" class="card-subtitle mt-2 mb-2"></h6>
+                    <img class="card-img-top" id="js-image"
+                        src="http://www.konbini.com/wp-content/blogs.dir/11/files/2018/04/rick-feat-1-480x279.jpg" alt="image">
+                    <div class="card-body">
+                        <h6 id="js-score" class="card-title">Score</h6>
+                        <p class="card-text">Ready to die?</p>
+                        <a href="#" id="js-trigger" class="btn btn-danger">Trigger 🔫</a>
+                        <p id="js-lives" class="pt-2"></p>
+                    </div>
+                </div>
+                    
+            </div>
+        </div>
     </main>
     
     <!--#include file="partials/footer.shtml" -->
