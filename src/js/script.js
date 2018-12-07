@@ -5,9 +5,12 @@ import helpers from './modules/helpers.js';
 // Fonction anonyme auto-appelante permettant de définir un alias
 // à l'objet settings (et helpers) de portée limitée
 ((s, h)=> {
+
     
-    /* with xmlHttpRequest and 
     // get images by Google customsearch API
+
+
+    /* with xmlHttpRequest 
     const imageSearch = new XMLHttpRequest(JSON);
     // asynchronous method: waiting for request response
     imageSearch.onreadystatechange = function(event) {
@@ -23,17 +26,47 @@ import helpers from './modules/helpers.js';
     imageSearch.send(null);
     */
     
-    // get images by swapi API
-    // with fetch()
+
+    // get character by swapi API
+
+
     // draw randomly a new character
-    s.character = Math.floor(Math.random()*50)+1;
+    s.character = Math.floor(Math.random()*10)+1;
+
+    // with xmlHttpRequest 
+    // code de Matthieu Schneider
+    /*
+    function getJson(url, callback) {
+        let xhr = new XMLHttpRequest();
+        xhr.open('GET', url, true);
+        xhr.responseType = 'json';
+        xhr.onload = function() {
+            let status = xhr.status;
+            if (status === 200) {
+                callback(null, xhr.response);
+            } else {
+                callback(status, xhr.response);
+            }
+        };
+        xhr.send();
+    };
+    
+    getJson('https://swapi.co/api/people/26/?format=json', changeCharacter);
+    
+    function changeCharacter(status, data) {
+        console.log(data);
+    }
+    */
+
+    // with fetch()
     fetch(s.characterSearchAPI + s.character + "/?format=json").then(function(response) {
         response.json().then(function(json) {
             s.eCname.innerText = json.name;
             s.eCeyes.innerText = json.eye_color;
+            s.eImage.src = 'http://www.facetheforce.today/' + json.name.split(' ')[0].toLowerCase() + '/400';
         });
     });
-    
+
     // update HTML elements
     eUpdate();
 
@@ -58,7 +91,7 @@ import helpers from './modules/helpers.js';
             ++s.deads;
             // end of game
             if (s.lives == 0) {
-                
+                s.eTrigger.disabled = true;
             }
         }
         // update HTML elements
@@ -77,7 +110,7 @@ import helpers from './modules/helpers.js';
             liveBar += ((i < s.deads) ? '💀' : '💛');
         }
         s.eLives.innerText = liveBar;
-        // TODO 
+        // TODO wait for liveBar render before alert 
         if (s.lives == 0) {
                 alert("End of game! You're definitly dead");
         }
