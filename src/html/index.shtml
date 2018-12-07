@@ -19,7 +19,9 @@
                     <img class="card-img-top" id="js-image"
                         src="http://www.konbini.com/wp-content/blogs.dir/11/files/2018/04/rick-feat-1-480x279.jpg" alt="image">
                     <div class="card-body">
-                        <h6 id="js-score" class="card-title">Score</h6>
+                        <h6 class="card-title">Character name: <span id="js-cname"></span></h6>
+                        <h6 class="card-title">Character eyes: <span id="js-ceyes"></span></h6>
+                        <h6 class="card-title">Score: <span id="js-score"></span></h6>
                         <p class="card-text">Ready to die?</p>
                         <button id="js-trigger" class="btn btn-danger">Trigger 🔫</button>
                         <p id="js-lives" class="pt-2"></p>
