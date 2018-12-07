@@ -5,10 +5,9 @@ import helpers from './modules/helpers.js';
 // Fonction anonyme auto-appelante permettant de définir un alias
 // à l'objet settings (et helpers) de portée limitée
 ((s, h)=> {
-
     
     // get images by Google customsearch API
-
+    // -------------------------------------
 
     /* with xmlHttpRequest 
     const imageSearch = new XMLHttpRequest(JSON);
@@ -26,13 +25,23 @@ import helpers from './modules/helpers.js';
     imageSearch.send(null);
     */
     
-
+    // with fetch()
+    var imageResult = [];
+    fetch(s.imageSearchAPI + s.sUserName + s.imageSearchParameters).then(function(response) {
+        response.json().then(function(json) {
+            for (let index = 0; index < s.lives; index++) {
+                imageResult.push(json.items[index].link);
+            }
+            console.log(imageResult);
+        });
+    });
+    
     // get character by swapi API
-
-
+    // --------------------------
+        
     // draw randomly a new character
-    s.character = Math.floor(Math.random()*10)+1;
-
+    // s.character = Math.floor(Math.random()*10)+1;
+    
     // with xmlHttpRequest 
     // code de Matthieu Schneider
     /*
@@ -50,14 +59,12 @@ import helpers from './modules/helpers.js';
         };
         xhr.send();
     };
-    
     getJson('https://swapi.co/api/people/26/?format=json', changeCharacter);
-    
+
     function changeCharacter(status, data) {
         console.log(data);
     }
-    */
-
+    
     // with fetch()
     fetch(s.characterSearchAPI + s.character + "/?format=json").then(function(response) {
         response.json().then(function(json) {
@@ -66,10 +73,11 @@ import helpers from './modules/helpers.js';
             s.eImage.src = 'http://www.facetheforce.today/' + json.name.split(' ')[0].toLowerCase() + '/400';
         });
     });
-
+    */
+    
     // update HTML elements
     eUpdate();
-
+    
     // trigger
     s.eTrigger.addEventListener('click', function() {
         // sounds reset
@@ -77,7 +85,7 @@ import helpers from './modules/helpers.js';
         s.audioTrigger.currentTime = 0;
         s.audioDead.pause();
         s.audioDead.currentTime = 0;
-
+        
         // random draw...
         if (Math.random() > s.difficulty) {
             // live
@@ -102,6 +110,8 @@ import helpers from './modules/helpers.js';
     function eUpdate() {
         // username
         s.eUserName.innerText = s.sUserName;
+        // image
+        s.eImage.src = imageResult[s.deads];
         // score
         s.eScore.innerText = s.score;
         // livebar with skulls and hearts
@@ -112,7 +122,7 @@ import helpers from './modules/helpers.js';
         s.eLives.innerText = liveBar;
         // TODO wait for liveBar render before alert 
         if (s.lives == 0) {
-                alert("End of game! You're definitly dead");
+            alert("End of game! You're definitly dead");
         }
     }
 

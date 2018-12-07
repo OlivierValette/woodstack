@@ -20,8 +20,8 @@
                     <img class="card-img-top" id="js-image"
                         src="https://www.lyoncapitale.fr/wp-content/uploads/2014/11/513405-ez-Star-Wars-770x433.jpg" alt="image">
                     <div class="card-body">
-                        <h6 class="card-title">Character name: <span id="js-cname"></span></h6>
-                        <h6 class="card-title">Character eyes: <span id="js-ceyes"></span></h6>
+                        <!-- <h6 class="card-title">Character name: <span id="js-cname"></span></h6>
+                        <h6 class="card-title">Character eyes: <span id="js-ceyes"></span></h6> -->
                         <h6 class="card-title">Score: <span id="js-score"></span></h6>
                         <p class="card-text">Ready to die?</p>
                         <button id="js-trigger" class="btn btn-danger">Trigger 🔫</button>
