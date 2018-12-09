@@ -14,7 +14,7 @@ module.exports = {
     // eCeyes: document.getElementById('js-ceyes'),
     
     // values for Google customsearch
-    imageSearchAPI: "https://www.googleapis.com/customsearch/v1?key=AIzaSyAzH04-G6MaOBNxWzCvw_vjuWwvRyEALkk&cx=005014813520210222604:dtsxfu-zgcc&q=",
+    imageSearchAPI: "https://www.googleapis.com/customsearch/v1?key=_____&cx=_____&q=",
     imageSearchParameters: "&searchType=image&fileType=jpg&imgType=face&alt=json",
     imageResult: ["https://fer-ge.ch/image/journal/article?img_id=637842&t=1460124494763"],
     sUserName: prompt('Votre nom ?', 'Rick and Morty'),
