@@ -26,19 +26,17 @@ import helpers from './modules/helpers.js';
     */
     
     // with fetch()
-    var imageResult = [];
     fetch(s.imageSearchAPI + s.sUserName + s.imageSearchParameters).then(function(response) {
         response.json().then(function(json) {
-            for (let index = 0; index < s.lives; index++) {
-                imageResult.push(json.items[index].link);
+            for (let i = 0; i < s.lives; i++) {
+                s.imageResult.push(json.items[i].link);
             }
-            console.log(imageResult);
         });
     });
     
     // get character by swapi API
     // --------------------------
-        
+    
     // draw randomly a new character
     // s.character = Math.floor(Math.random()*10)+1;
     
@@ -80,7 +78,11 @@ import helpers from './modules/helpers.js';
     
     // trigger
     s.eTrigger.addEventListener('click', function() {
-        // sounds reset
+        // if game is over, reload page on click for a new game
+        if (s.endOfGame == true) {
+            document.location.reload(true);
+        }
+        // sounds reset, allowing new sound to play
         s.audioTrigger.pause();
         s.audioTrigger.currentTime = 0;
         s.audioDead.pause();
@@ -99,7 +101,9 @@ import helpers from './modules/helpers.js';
             ++s.deads;
             // end of game
             if (s.lives == 0) {
-                s.eTrigger.disabled = true;
+                s.endOfGame = true;
+                s.eTrigger.innerText = "Play again";
+                s.eTrigger.className = "btn btn-success";
             }
         }
         // update HTML elements
@@ -111,7 +115,7 @@ import helpers from './modules/helpers.js';
         // username
         s.eUserName.innerText = s.sUserName;
         // image
-        s.eImage.src = imageResult[s.deads];
+        s.eImage.src = s.imageResult[s.deads];
         // score
         s.eScore.innerText = s.score;
         // livebar with skulls and hearts
@@ -120,9 +124,9 @@ import helpers from './modules/helpers.js';
             liveBar += ((i < s.deads) ? '💀' : '💛');
         }
         s.eLives.innerText = liveBar;
-        // TODO wait for liveBar render before alert 
-        if (s.lives == 0) {
-            alert("End of game! You're definitly dead");
+        // end of game alert
+        if (s.endOfGame == true) {
+            s.eEndOfGame.innerText = "End of game! You're definitly dead";
         }
     }
 

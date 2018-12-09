@@ -17,13 +17,15 @@
 
                 <div class="card bg-secondary mb-3 mx-auto" style="width: 25rem;">
                     <h6 id="js-username" class="card-subtitle mt-2 mb-2"></h6>
-                    <img class="card-img-top" id="js-image"
-                        src="https://www.lyoncapitale.fr/wp-content/uploads/2014/11/513405-ez-Star-Wars-770x433.jpg" alt="image">
+                    <img id="js-image" class="card-img-top" 
+                        src="https://fer-ge.ch/image/journal/article?img_id=637842&t=1460124494763" 
+                        alt="image">
                     <div class="card-body">
                         <!-- <h6 class="card-title">Character name: <span id="js-cname"></span></h6>
                         <h6 class="card-title">Character eyes: <span id="js-ceyes"></span></h6> -->
                         <h6 class="card-title">Score: <span id="js-score"></span></h6>
                         <p class="card-text">Ready to die?</p>
+                        <p id="js-endofgame" class="card-text text-warning"></p>
                         <button id="js-trigger" class="btn btn-danger">Trigger 🔫</button>
                         <p id="js-lives" class="pt-2"></p>
                     </div>
